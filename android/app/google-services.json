@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "107535777783",
+    "project_id": "todayapp-3cf0a",
+    "storage_bucket": "todayapp-3cf0a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:107535777783:android:f237c31163c9032530b8f2",
+        "android_client_info": {
+          "package_name": "com.todayapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "107535777783-rc0b0i3262l43spbrn64qspd50l76ke8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDM6Z4uJeIgUpJV_qBziqX9Ad9v2qWOsIE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "107535777783-rc0b0i3262l43spbrn64qspd50l76ke8.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "107535777783-e4udcprbs8urn1kd0t7l0nkdmusch8pg.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.todayapp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
