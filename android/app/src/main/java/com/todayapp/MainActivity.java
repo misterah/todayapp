@@ -1,5 +1,5 @@
 package com.todayapp;
-
+import android.os.Bundle;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
@@ -14,7 +14,10 @@ public class MainActivity extends ReactActivity {
   protected String getMainComponentName() {
     return "todayapp";
   }
-
+  @Override
+  protected void onCreate(Bundle savedInstanceState) {
+       super.onCreate(null);
+  }
   /**
    * Returns the instance of the {@link ReactActivityDelegate}. There the RootView is created and
    * you can specify the rendered you wish to use (Fabric or the older renderer).
@@ -36,5 +39,6 @@ public class MainActivity extends ReactActivity {
       reactRootView.setIsFabric(BuildConfig.IS_NEW_ARCHITECTURE_ENABLED);
       return reactRootView;
     }
+
   }
 }
