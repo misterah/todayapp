@@ -9,7 +9,7 @@ const introData = [
         key: '1',
         title: 'The simplest way to share a moment!',
         description:
-            'Lorem ipsum dolor sit amet, consectetur\n adipiscing elit. Enim massa elit metus, eleifend \n tincidunt dignissim mi.',
+            'Welcome to TODAY, make your life easier\n than yesterday. Share your moments, feelings, experiences \n with chat conversations simply.',
         image:
             'https://imgz.io/images/2022/04/28/first.png',
 
@@ -18,16 +18,16 @@ const introData = [
         key: '2',
         title: 'Share your moment with friends',
         description:
-            'Lorem ipsum dolor sit amet, consectetur\n adipiscing elit. Enim massa elit metus, eleifend \n tincidunt dignissim mi.',
+            'Communicate with others fast and easily.\n Chat with your friends by private chat or group chat. \n Keep them all in your chats',
         image:
             'https://imgz.io/images/2022/04/28/second.png',
 
     },
     {
         key: '3',
-        title: 'Meet new friends faster',
+        title: 'Keep your chats safety',
         description:
-            'Lorem ipsum dolor sit amet, consectetur\n adipiscing elit. Enim massa elit metus, eleifend \n tincidunt dignissim mi.',
+            'Other than ease, TODAY will gives you great\n security. Keep your conversation safe with ours app.\n Start to join us, your friends are waiting!',
         image:
             'https://imgz.io/images/2022/04/28/three6ff93d8c63eb263c.png',
 
