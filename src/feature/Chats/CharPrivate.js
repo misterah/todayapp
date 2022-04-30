@@ -63,17 +63,19 @@ const ChatPrivate = ({route,navigation}) => {
                     ...doc.data(),
                 }));
                 console.log(token)
+                console.log(data)
                 console.log(users[0].UserToken)
                 if(data.length!==0){
                     data.map((item)=>{
-                        console.log(item)
+                        console.log("this is item",item,"end")
                         if(item.Member.includes(token)&&item.Member.includes(users[0].UserToken)){
                             if(item.Message.length===0){
                                 console.log("No Chat")
-                                setRoom([...data])
+                                setRoom([item])
                             }else{
                                 setMsg([...item.Message])
-                                setRoom([...data])
+                                console.log(data)
+                                setRoom([item])
                             }
                         }
                         r++
