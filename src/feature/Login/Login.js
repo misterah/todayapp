@@ -70,7 +70,18 @@ const Login = ({navigation}) => {
                     <FormControl.Label>Password</FormControl.Label>
                     <Input variant="filled" type="password" placeholder=" Must be atleast 6 characters." value={password} onChangeText={setPassword}/>
                 </FormControl>
-                <Button mt="3" bgColor={'#634570'} size={'md'} onPress={()=>{
+                <FormControl alignItems={'flex-end'} mb={0}>
+                    <Button variant={'unstyled'} _text={{
+                        color: "#634570",
+                        fontWeight: "medium",
+                        fontSize: "sm",
+                    }} onPress={()=>navigation.navigate('Forgot')}>
+                        <Text  color={"#634570"} bold >
+                            Forgot Password ?
+                        </Text>
+                    </Button>
+                </FormControl>
+                <Button  bgColor={'#634570'} size={'md'} onPress={()=>{
                 handleSignIn()}
                 }>
                     Login

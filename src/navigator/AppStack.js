@@ -14,6 +14,7 @@ import Setting from '../feature/Settings/Settings';
 import LogInAuth from "../feature/Auth/Auth";
 import Search from "../feature/Searching/Search";
 import ChatPrivate from "../feature/Chats/CharPrivate";
+import Forgot from "../feature/forgotpassword/Forgot";
 const Stack = createNativeStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -22,7 +23,7 @@ const HomeStack  = ({route,navigation}) => {
     console.log(itemId)
     return (
         <Box bgColor={'white'} h={'100%'}>
-            <Tab.Navigator
+            <Tab.Navigator initialRouteName={'Chats'}
                 screenOptions={({ route }) => ({
                     tabBarStyle:{paddingVertical: 5,borderTopLeftRadius:35,
                         borderTopRightRadius:35,backgroundColor:'white',height:80},
@@ -47,8 +48,8 @@ const HomeStack  = ({route,navigation}) => {
                             );
                         }
                     },
-                    tabBarInactiveTintColor: 'gray',
-                    tabBarActiveTintColor: '#475569',
+                    tabBarInactiveTintColor: '#BBBBBB',
+                    tabBarActiveTintColor: "#634570",
                 })}>
                 <Tab.Screen
                     name="Chats"
@@ -57,7 +58,7 @@ const HomeStack  = ({route,navigation}) => {
                     //options={{ tabBarBadge: 3 }}
                 />
 
-                <Tab.Screen name="Settings" component={Setting} />
+                <Tab.Screen name="Settings" component={Setting} initialParams={{ email: itemId }}/>
             </Tab.Navigator>
         </Box>
     );
@@ -75,6 +76,7 @@ function AppStack() {
                 <Stack.Screen name="Welcome" component={gettingStarted}/>
                 <Stack.Screen name="Login" component={Login} />
                 <Stack.Screen name="Register" component={Register} />
+                <Stack.Screen name="Forgot" component={Forgot} />
             </Stack.Navigator>
     );
 }

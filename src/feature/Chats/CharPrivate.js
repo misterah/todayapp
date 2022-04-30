@@ -28,6 +28,7 @@ const ChatPrivate = ({route,navigation}) => {
     const [room,setRoom] = useState([]);
     let r = 0;
     const toast = useToast();
+
     const sendText=  ()=>{
         const roomRef = firestore().collection("Chatrooms").doc(room[0].RoomToken);
         if(text!==''){
@@ -52,6 +53,7 @@ const ChatPrivate = ({route,navigation}) => {
             })
         }
     }
+
     useEffect(()=>{
         firestore()
             .collection("Chatrooms")
@@ -75,6 +77,7 @@ const ChatPrivate = ({route,navigation}) => {
                 }
             });
     },[])
+
     return (
         <Box bgColor={'white'} flex={1} >
             <HStack space={0}  mt={1} >

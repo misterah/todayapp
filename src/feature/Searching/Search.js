@@ -10,7 +10,8 @@ import {
     Spacer,
     Avatar,
     VStack,
-    Text
+    Text,
+    AlertDialog,
 } from "native-base";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -24,6 +25,7 @@ const Search = ({route,navigation}) => {
     const [userArr,setUserArr] =useState();
     const UserRef = firestore().collection("Users");
     const { UserData } = route.params;
+
     const FreindsList = []
     const FetchData =()=>{
         let user = []
@@ -55,8 +57,8 @@ const Search = ({route,navigation}) => {
                     console.log('User data: ', documentSnapshot.data());
                     if (documentSnapshot.data().Friends.length === 0) {
                         console.log('1.Friends data: ', documentSnapshot.data().Friends);
-                        updaterequest();
-                        updateresponse();
+                        updatarequest();
+                        updataresponse();
                         CreateRooms(UserData[0].UserToken,userid);
                     } else {
                         Freinds.map((item) => {
@@ -79,7 +81,7 @@ const Search = ({route,navigation}) => {
                     }
                 }
             });
-        const updaterequest = () => {
+        const updatarequest = () => {
             firestore().collection('Users').doc(UserData[0].UserToken).update({
                 Friends: [userid],
             })
@@ -88,7 +90,7 @@ const Search = ({route,navigation}) => {
 
                 });
         }
-        const updateresponse= () => {
+        const updataresponse = () => {
             firestore().collection('Users').doc(userid).update({
                 Friends: [UserData[0].UserToken],
             })
@@ -149,17 +151,17 @@ const Search = ({route,navigation}) => {
     return (
         <ScrollView  showsVerticalScrollIndicator={false}
                      showsHorizontalScrollIndicator={false} bgColor={'white'}>
-            <Center w="100%" bgColor={'white'} mt={35} >
-                <Box safeArea w="100%" maxW="350">
+            <Center w="100%" bgColor={'white'} mt={25} >
+                <Box safeArea w="100%" maxW="380">
                     <HStack alignItems={'space-around'}>
                         <IconButton variant={"unstyled"}
                             icon={<MaterialIcons name="keyboard-arrow-left" size={30} color="#2F2E41"/>}
                             onPress={()=>navigation.navigate('Chats')}/>
 
-                        <Input variant="filled" type="text" w={300}
+                        <Input variant="filled" type="text" w={320} rounded={30}
                                placeholder="Searching.."
                                InputLeftElement={<Icon as={<Ionicons name="ios-search" />}
-                                                       size={5} ml="3" color="muted.400" />}
+                                                       size={5} ml="4" color="muted.400" />}
                                placeholder="Search" value={text} onChangeText={setText}/>
                     </HStack>
                     <Box>

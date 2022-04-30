@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import {Box, Heading, ScrollView, FlatList, HStack, Avatar, VStack, Text, Spacer, IconButton,Pressable} from "native-base";
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
-import AntDesign  from 'react-native-vector-icons/Feather';
+import AntDesign  from 'react-native-vector-icons/FontAwesome';
 import firestore from "@react-native-firebase/firestore";
 import {Use} from "react-native-svg";
 const Chats = ({ route, navigation }) => {
@@ -33,14 +33,6 @@ const Chats = ({ route, navigation }) => {
                         }
                     })
                     setUser(UserData);
-                });
-            await firestore()
-                .collection("Users")
-                .onSnapshot((snapshot) => {
-                    const data = snapshot.docs.map((doc) => ({
-                        id: doc.id,
-                        ...doc.data(),
-                    }));
                     if(data.length!==0&&UserData.length!==0){
                         data.map((item)=>{
                             if(UserData[0].Friends.includes(item.UserToken)){
@@ -64,13 +56,13 @@ const Chats = ({ route, navigation }) => {
     return(
             <Box flex={1} padding={5} bgColor={'white'} >
                 <HStack space={3} justifyContent="space-between">
-                    <Heading size={'xl'} color={'#475569'} Bold>
+                    <Heading size={'lg'} color={'#3F3D56'} Bold>
                         Message
                     </Heading>
-                    <IconButton onPress={()=>{
+                    <IconButton bgColor={'#F4F4F4'} rounded={30} onPress={()=>{
                         navigation.navigate('Search',{UserData:user})
                     }} variant={"unstyled"} icon={
-                        <AntDesign name="user-plus" size={30} color="#475569" />}/>
+                        <AntDesign name="search" size={20} color="#475569" />}/>
                 </HStack>
                 <ScrollView  showsVerticalScrollIndicator={false}
                              showsHorizontalScrollIndicator={false}>
@@ -86,7 +78,7 @@ const Chats = ({ route, navigation }) => {
                                             <Text color="coolGray.600" _dark={{color: "warmGray.200"}}>{item.LastMessage}</Text>
                                         </VStack>
                                         <Spacer />
-                                        {/*<Text fontSize="xs" _dark={{color: "warmGray.50"}} color="coolGray.800" alignSelf="flex-start">{item.LastMessage}</Text>*/}
+                                        <Text fontSize="xs" _dark={{color: "warmGray.50"}} color="coolGray.800" alignSelf="flex-start">{"13.00 PM"}</Text>
                                     </HStack>
                                 </Box>
                             </Pressable>} keyExtractor={item => item.id} />
