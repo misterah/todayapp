@@ -91,7 +91,7 @@ const Chats = ({ route, navigation }) => {
                                             <Text color="coolGray.600" _dark={{color: "warmGray.200"}}>{item.LastMessage}</Text>
                                         </VStack>
                                         <Spacer />
-                                        <Text fontSize="xs" _dark={{color: "warmGray.50"}} color="coolGray.800" alignSelf="flex-start">{"13.00 PM"}</Text>
+                                        {/*<Text fontSize="xs" _dark={{color: "warmGray.50"}} color="coolGray.800" alignSelf="flex-start">{"13.00 PM"}</Text>*/}
                                     </HStack>
                                 </Box>
                             </Pressable>} keyExtractor={item => item.id} />
