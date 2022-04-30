@@ -66,9 +66,11 @@ const ChatPrivate = ({route,navigation}) => {
                 console.log(users[0].UserToken)
                 if(data.length!==0){
                     data.map((item)=>{
+                        console.log(item)
                         if(item.Member.includes(token)&&item.Member.includes(users[0].UserToken)){
                             if(item.Message.length===0){
                                 console.log("No Chat")
+                                setRoom([...data])
                             }else{
                                 setMsg([...item.Message])
                                 setRoom([...data])

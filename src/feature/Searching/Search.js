@@ -11,7 +11,7 @@ import {
     Avatar,
     VStack,
     Text,
-    AlertDialog,
+    AlertDialog, useToast,
 } from "native-base";
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons'
@@ -23,9 +23,10 @@ import uuid from "react-native-uuid";
 const Search = ({route,navigation}) => {
     const [text,setText] =useState('');
     const [userArr,setUserArr] =useState();
+    const [isAdd,setIsAdd] =useState(false);
     const UserRef = firestore().collection("Users");
     const { UserData } = route.params;
-
+    const toast = useToast();
     const FreindsList = []
     const FetchData =()=>{
         let user = []
@@ -45,7 +46,6 @@ const Search = ({route,navigation}) => {
     const AddFriends = async (userid)=> {
 
         const user = await firestore().collection('Users').doc(userid).get();
-
         firestore()
             .collection('Users')
             .doc(UserData[0].UserToken)
@@ -72,8 +72,15 @@ const Search = ({route,navigation}) => {
                                 })
                                     .then(() => {
                                         console.log('User Update Successfully!');
+                                        toast.show({
+                                            title: 'User Update Successfully!',
+                                            placement: "bottom"
+                                        })
                                         CreateRooms(UserData[0].UserToken,userid)
                                     });
+                                firestore().collection('Users').doc(userid).update({
+                                    Friends: [...FreindsList, UserData[0].UserToken],
+                                })
                             } else {
                                 console.log('You Have A Friends');
                             }

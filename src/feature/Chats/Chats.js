@@ -1,5 +1,18 @@
 import React, {useEffect, useState} from "react";
-import {Box, Heading, ScrollView, FlatList, HStack, Avatar, VStack, Text, Spacer, IconButton,Pressable} from "native-base";
+import {
+    Box,
+    Heading,
+    ScrollView,
+    FlatList,
+    HStack,
+    Avatar,
+    VStack,
+    Text,
+    Spacer,
+    IconButton,
+    Pressable,
+    useToast
+} from "native-base";
 import { LogBox } from 'react-native';
 LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
 import AntDesign  from 'react-native-vector-icons/FontAwesome';
@@ -12,7 +25,7 @@ const Chats = ({ route, navigation }) => {
     const FriendsList = [];
     const [freinds,setFreinds] = useState();
     const [load,setLoad] =useState(false);
-
+    const toast = useToast();
     function handleLoadingData(item,Avatar,username){
         navigation.navigate('Chatprivate',{token:item,AvatarUrl:Avatar,Username:username,users:user});
     }
